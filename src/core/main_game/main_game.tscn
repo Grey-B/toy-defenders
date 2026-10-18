@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://ddx50aqqe660e"]
+
+[ext_resource type="Script" uid="uid://b75daq6ggxa5u" path="res://src/core/main_game/main_game.gd" id="1_3fed5"]
+[ext_resource type="Script" uid="uid://booa5lssidq6e" path="res://src/core/main_game/debug_text_overlay.gd" id="2_6yl8a"]
+
+[node name="MainGame" type="Node" unique_id=375050390]
+process_mode = 3
+script = ExtResource("1_3fed5")
+
+[node name="Systems" type="Node" parent="." unique_id=575766372]
+
+[node name="World" type="Node3D" parent="." unique_id=1969020105]
+process_mode = 1
+
+[node name="LevelRoot" type="Node3D" parent="World" unique_id=1229113294]
+unique_name_in_owner = true
+
+[node name="EntityRoot" type="Node3D" parent="World" unique_id=262188569]
+unique_name_in_owner = true
+
+[node name="EffectRoot" type="Node3D" parent="World" unique_id=297894831]
+unique_name_in_owner = true
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=1412521957]
+process_mode = 1
+layer = 10
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=838108887]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=312815010]
+process_mode = 2
+layer = 20
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1430090320]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1519704890]
+process_mode = 3
+layer = 100
+
+[node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=644922209]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=1198098464]
+process_mode = 3
+layer = 128
+
+[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=214681658]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="DebugTextOverlay" type="Control" parent="DebugLayer/DebugRoot" unique_id=1578908695]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("2_6yl8a")
+
+[node name="MarginContainer" type="MarginContainer" parent="DebugLayer/DebugRoot/DebugTextOverlay" unique_id=926936230]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugLayer/DebugRoot/DebugTextOverlay/MarginContainer" unique_id=347656139]
+layout_mode = 2
+
+[node name="FpsLabel" type="Label" parent="DebugLayer/DebugRoot/DebugTextOverlay/MarginContainer/VBoxContainer" unique_id=1137828912]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VersionLabel" type="Label" parent="DebugLayer/DebugRoot/DebugTextOverlay/MarginContainer/VBoxContainer" unique_id=1261707569]
+unique_name_in_owner = true
+layout_mode = 2

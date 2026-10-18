@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ba0k6u41pfd88"]
+
+[ext_resource type="Script" uid="uid://dmmyy6xrqgir0" path="res://src/levels/prototypes/test_level_1.gd" id="1_1w4w8"]
+[ext_resource type="Script" uid="uid://d2yd8ffdkw5ye" path="res://src/gameplay/player/player_spawn.gd" id="2_578bt"]
+
+[sub_resource type="Environment" id="Environment_6owma"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_s58g3"]
+
+[sub_resource type="Compositor" id="Compositor_hrtwn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6owma"]
+size = Vector3(200, 1, 200)
+
+[node name="TestLevel1" type="Node3D" unique_id=1019135432]
+script = ExtResource("1_1w4w8")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1023593402]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=2114037236]
+environment = SubResource("Environment_6owma")
+camera_attributes = SubResource("CameraAttributesPractical_s58g3")
+compositor = SubResource("Compositor_hrtwn")
+
+[node name="Light" type="Node3D" parent="." unique_id=1716135122]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light" unique_id=1738101022]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.7071069, 0, -0.7071069, 0.70710677, 0, 31.665031, 142.91565)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=166323494]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1775220504]
+shape = SubResource("BoxShape3D_6owma")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D/CollisionShape3D" unique_id=382898587]
+size = Vector3(200, 1, 200)
+
+[node name="PlayerSpawn" type="Marker3D" parent="." unique_id=448371376]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("2_578bt")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=357815887]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660254, 0, -0.8660254, 0.5, 0, 11.726133, 5)
