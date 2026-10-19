@@ -5,6 +5,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6owma"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1566504034]
+collision_layer = 2
 script = ExtResource("1_kh5p4")
 speed = 5.0
 
@@ -13,3 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_6owma")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D" unique_id=1191798244]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1552441341]
+transform = Transform3D(1, 0, 0, 0, 0.50000006, 0.8660254, 0, -0.8660254, 0.50000006, 0.068574905, 7.810198, 3.9408832)

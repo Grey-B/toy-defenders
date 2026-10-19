@@ -68,7 +68,7 @@ func deffered_load_level(level_scene_uid: String) -> void:
 	level_root.add_child(current_level)
 
 	place_player_at_level_spawn()
-	setup_camera()
+	#setup_camera()
 
 
 func place_player_at_level_spawn() -> void:
@@ -81,14 +81,13 @@ func place_player_at_level_spawn() -> void:
 
 	player.global_position = current_level.get_default_player_spawn()
 
-
-func setup_camera() -> void:
-	if player == null or current_level == null:
-		return
-
-	var level_camera := current_level.get_player_camera()
-	if level_camera == null:
-		return
-
-	# TODO: temporary hookup
-	# TODO: camera_system.set_target(player)
+	#func setup_camera() -> void:
+	#if player == null or current_level == null:
+	#return
+	#
+	#var level_camera := current_level.get_player_camera()
+	#if level_camera == null:
+	#return
+	#
+	## TODO: temporary hookup
+	## TODO: camera_system.set_target(player)

@@ -39,7 +39,3 @@ size = Vector3(200, 1, 200)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_578bt")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=357815887]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.8660254, 0, -0.8660254, 0.5, 0, 11.726133, 5)
