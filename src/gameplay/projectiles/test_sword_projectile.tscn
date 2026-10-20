@@ -6,13 +6,15 @@
 size = Vector3(2, 0.3, 1)
 
 [node name="TestSwordProjectile" type="CharacterBody3D" unique_id=1683809850]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_sbqgo")
 metadata/_custom_type_script = "uid://ce8nsx53ji21p"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=689524887]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("BoxShape3D_6owma")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1518891658]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999994, 0)
 size = Vector3(2, 0.001, 1)

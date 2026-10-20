@@ -34,3 +34,7 @@ curve = SubResource("Curve3D_kh5p4")
 [node name="EnemyPathFollow" type="PathFollow3D" parent="Path3D" unique_id=2042184523]
 unique_name_in_owner = true
 transform = Transform3D(0.016946534, 0, -0.9998564, 0, 1, 0, 0.9998564, 0, 0.016946534, -8.940706, 0.00012207031, 7.4117084)
+
+[node name="ProjectileSpawn" type="Marker3D" parent="." unique_id=791439976]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 1)
