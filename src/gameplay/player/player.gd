@@ -13,6 +13,8 @@ enum States { IDLE, MOVE }
 
 var active_state: States = States.IDLE
 var model_instance: Node3D
+var strength: float
+var dexterity: float
 var speed: float
 var max_health: int
 var cur_health: int
@@ -22,6 +24,8 @@ var attack_timer: Timer = Timer.new()
 
 func _ready() -> void:
 	model_instance = data.ancestry.model.instantiate()
+	strength = data.strength * data.ancestry.strength_mult * data.player_class.strength_mult
+	dexterity = data.dexterity * data.ancestry.dexterity_mult * data.player_class.dexterity_mult
 	speed = data.speed * data.ancestry.speed_mult * data.player_class.speed_mult
 	max_health = int(data.max_health * data.ancestry.health_mult * data.player_class.health_mult)
 	cur_health = max_health

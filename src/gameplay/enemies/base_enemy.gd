@@ -29,3 +29,6 @@ func _physics_process(_delta: float) -> void:
 func _on_contact_hitbox_body_entered(body: Node3D) -> void:
 	if body is Player:
 		body.take_damage(data.behavior.contact_damage)
+
+
+func take_damage(damage: int) -> void:
