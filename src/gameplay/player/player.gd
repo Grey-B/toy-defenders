@@ -7,6 +7,7 @@ enum States { IDLE, MOVE }
 @export var data: PlayerData
 @export var equipped_weapon: WeaponData
 
+@onready var entity_root: Node3D = get_tree().get_first_node_in_group("entity_root")
 @onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
 @onready var projectile_spawn: Marker3D = %ProjectileSpawn
 
@@ -76,7 +77,8 @@ func attack() -> void:
 	var attack_instance = equipped_weapon.attack_model.instantiate() as BaseProjectile
 	attack_instance.direction = collision_shape_3d.rotation
 	attack_instance.spawn_position = projectile_spawn.global_position
-	add_child(attack_instance)
+	attack_instance.rotation_basis = collision_shape_3d.global_transform.basis
+	entity_root.add_child(attack_instance)
 
 
 func take_damage(damage: int) -> void:

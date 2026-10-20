@@ -9,6 +9,7 @@ size = Vector3(2, 0.3, 1)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_sbqgo")
+speed = 5.0
 duration_timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://ce8nsx53ji21p"
 
@@ -16,11 +17,12 @@ metadata/_custom_type_script = "uid://ce8nsx53ji21p"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("BoxShape3D_6owma")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1518891658]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999994, 0)
-size = Vector3(2, 0.001, 1)
-
 [node name="Timer" type="Timer" parent="." unique_id=867612322]
+process_callback = 0
 wait_time = 0.2
 one_shot = true
 autostart = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1144271148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21727344, 0)
+size = Vector3(2, 0.001, 1)
