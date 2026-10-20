@@ -74,8 +74,9 @@ func set_state(new_state: States) -> void:
 func attack() -> void:
 	var attack_instance = equipped_weapon.attack_model.instantiate()
 	entity_root.add_child(attack_instance)
-	attack_instance.global_position = global_position
-	attack_instance.rotation.y = model_instance.rotation.y
+	attack_instance.direction = model_instance.rotation.y
+	attack_instance.spawn_position = global_position
+	attack_instance.spawn_rotation = rotation.y
 
 
 func take_damage(damage: int) -> void:

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c2cywo6pctl7f"]
+
+[ext_resource type="Script" uid="uid://ce8nsx53ji21p" path="res://src/gameplay/projectiles/base_projectile.gd" id="1_sbqgo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6owma"]
+size = Vector3(2, 0.3, 1)
+
+[node name="TestSwordProjectile" type="CharacterBody3D" unique_id=1683809850]
+script = ExtResource("1_sbqgo")
+metadata/_custom_type_script = "uid://ce8nsx53ji21p"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=689524887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_6owma")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1518891658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(2, 0.001, 1)

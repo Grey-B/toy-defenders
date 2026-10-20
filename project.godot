@@ -31,7 +31,6 @@ enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg")
 
 folder_colors={
 "res://assets/": "pink",
-"res://assets/2d/": "pink",
 "res://assets/3d/": "orange",
 "res://assets/audio/": "purple",
 "res://src/": "red",
