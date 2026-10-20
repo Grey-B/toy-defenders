@@ -53,10 +53,10 @@ func _physics_process(_delta: float) -> void:
 		set_state(States.IDLE)
 
 	if active_state == States.MOVE:
-		lerp_angle(
+		model_instance.rotation.y = lerp_angle(
 			rotation.y,
 			atan2(velocity.x, velocity.z),
-			0.1,
+			0.15,
 		)
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -75,6 +75,7 @@ func attack() -> void:
 	var attack_instance = equipped_weapon.attack_model.instantiate()
 	entity_root.add_child(attack_instance)
 	attack_instance.global_position = global_position
+	attack_instance.rotation.y = model_instance.rotation.y
 
 
 func take_damage(damage: int) -> void:

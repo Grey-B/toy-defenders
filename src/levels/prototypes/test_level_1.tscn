@@ -12,6 +12,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_6owma"]
 size = Vector3(200, 1, 200)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yl8a"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="TestLevel1" type="Node3D" unique_id=1019135432]
 script = ExtResource("1_1w4w8")
 
@@ -34,6 +37,7 @@ shape = SubResource("BoxShape3D_6owma")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D/CollisionShape3D" unique_id=382898587]
 size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_6yl8a")
 
 [node name="PlayerSpawn" type="Marker3D" parent="." unique_id=448371376]
 unique_name_in_owner = true
