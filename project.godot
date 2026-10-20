@@ -43,6 +43,10 @@ folder_colors={
 "res://src/ui/": "pink"
 }
 
+[global_group]
+
+entity_root=""
+
 [input]
 
 move_left={

@@ -5,12 +5,17 @@ enum States { IDLE, MOVE }
 
 @export var enemy_path_follow: PathFollow3D
 @export var data: PlayerData
+@export var equipped_weapon: WeaponData
+
+@onready var entity_root: Node3D = get_tree().get_first_node_in_group("entity_root")
 
 var active_state: States = States.IDLE
 var model_instance: Node3D
 var speed: float
 var max_health: int
 var cur_health: int
+var attack_speed: float = 1.0
+var attack_timer: Timer = Timer.new()
 
 
 func _ready() -> void:
@@ -18,8 +23,17 @@ func _ready() -> void:
 	speed = data.speed * data.ancestry.speed_mult * data.player_class.speed_mult
 	max_health = int(data.max_health * data.ancestry.health_mult * data.player_class.health_mult)
 	cur_health = max_health
+	attack_speed /= equipped_weapon.attack_speed
 
 	add_child(model_instance)
+	add_child(attack_timer)
+
+	attack_timer.start()
+	attack_timer.one_shot = false
+	# TODO: replace with manual attack toggle
+
+	attack_timer.wait_time = 1.0 / attack_speed
+	attack_timer.timeout.connect(attack)
 
 
 func _physics_process(_delta: float) -> void:
@@ -39,6 +53,11 @@ func _physics_process(_delta: float) -> void:
 		set_state(States.IDLE)
 
 	if active_state == States.MOVE:
+		lerp_angle(
+			rotation.y,
+			atan2(velocity.x, velocity.z),
+			0.1,
+		)
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	elif active_state == States.IDLE:
@@ -50,6 +69,12 @@ func _physics_process(_delta: float) -> void:
 
 func set_state(new_state: States) -> void:
 	active_state = new_state
+
+
+func attack() -> void:
+	var attack_instance = equipped_weapon.attack_model.instantiate()
+	entity_root.add_child(attack_instance)
+	attack_instance.global_position = global_position
 
 
 func take_damage(damage: int) -> void:

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2tl4awloq3r3" path="res://src/gameplay/player/player.gd" id="1_kh5p4"]
 [ext_resource type="Resource" uid="uid://0d832eq58eps" path="res://src/resources/player data/test_player.tres" id="2_64h4j"]
+[ext_resource type="Resource" uid="uid://b21i3lrmltkg8" path="res://src/resources/weapons/swords/test_sword.tres" id="3_k2146"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6owma"]
 
@@ -18,6 +19,7 @@ collision_layer = 2
 script = ExtResource("1_kh5p4")
 enemy_path_follow = NodePath("Path3D/EnemyPathFollow")
 data = ExtResource("2_64h4j")
+equipped_weapon = ExtResource("3_k2146")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=210629025]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

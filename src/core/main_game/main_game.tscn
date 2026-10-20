@@ -15,7 +15,7 @@ process_mode = 1
 [node name="LevelRoot" type="Node3D" parent="World" unique_id=1229113294]
 unique_name_in_owner = true
 
-[node name="EntityRoot" type="Node3D" parent="World" unique_id=262188569]
+[node name="EntityRoot" type="Node3D" parent="World" unique_id=262188569 groups=["entity_root"]]
 unique_name_in_owner = true
 
 [node name="EffectRoot" type="Node3D" parent="World" unique_id=297894831]
