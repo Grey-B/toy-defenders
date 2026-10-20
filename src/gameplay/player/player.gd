@@ -82,6 +82,12 @@ func attack() -> void:
 	attack_instance.direction = collision_shape_3d.rotation
 	attack_instance.spawn_position = projectile_spawn.global_position
 	attack_instance.rotation_basis = collision_shape_3d.global_transform.basis
+
+	if equipped_weapon.weapon_range == "melee":
+		attack_instance.damage = equipped_weapon.damage + strength
+	elif equipped_weapon.weapon_range == "ranged":
+		attack_instance.damage = equipped_weapon.damage + dexterity
+
 	entity_root.add_child(attack_instance)
 
 

@@ -32,3 +32,6 @@ func _on_contact_hitbox_body_entered(body: Node3D) -> void:
 
 
 func take_damage(damage: int) -> void:
+	health -= damage
+	if health <= 0:
+		call_deferred("queue_free")
