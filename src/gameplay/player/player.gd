@@ -7,7 +7,7 @@ enum States { IDLE, MOVE }
 @export var data: PlayerData
 @export var equipped_weapon: WeaponData
 
-@onready var entity_root: Node3D = get_tree().get_first_node_in_group("entity_root")
+@onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
 @onready var projectile_spawn: Marker3D = %ProjectileSpawn
 
 var active_state: States = States.IDLE
@@ -26,14 +26,14 @@ func _ready() -> void:
 	cur_health = max_health
 	attack_speed /= equipped_weapon.attack_speed
 
-	add_child(model_instance)
+	collision_shape_3d.add_child(model_instance)
 	add_child(attack_timer)
 
 	attack_timer.start()
 	attack_timer.one_shot = false
 	# TODO: replace with manual attack toggle
 
-	attack_timer.wait_time = 1.0 / attack_speed
+	attack_timer.wait_time = attack_speed
 	attack_timer.timeout.connect(attack)
 
 
@@ -54,8 +54,8 @@ func _physics_process(_delta: float) -> void:
 		set_state(States.IDLE)
 
 	if active_state == States.MOVE:
-		model_instance.rotation.y = lerp_angle(
-			rotation.y,
+		collision_shape_3d.rotation.y = lerp_angle(
+			collision_shape_3d.rotation.y,
 			atan2(velocity.x, velocity.z),
 			0.15,
 		)
@@ -74,10 +74,9 @@ func set_state(new_state: States) -> void:
 
 func attack() -> void:
 	var attack_instance = equipped_weapon.attack_model.instantiate() as BaseProjectile
-	attack_instance.direction = model_instance.rotation
+	attack_instance.direction = collision_shape_3d.rotation
 	attack_instance.spawn_position = projectile_spawn.global_position
-	attack_instance.spawn_rotation = rotation
-	entity_root.add_child(attack_instance)
+	add_child(attack_instance)
 
 
 func take_damage(damage: int) -> void:
