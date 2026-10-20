@@ -1,19 +1,34 @@
 [gd_scene format=3 uid="uid://bro1da23d1j3v"]
 
 [ext_resource type="Script" uid="uid://2tl4awloq3r3" path="res://src/gameplay/player/player.gd" id="1_kh5p4"]
+[ext_resource type="Resource" uid="uid://0d832eq58eps" path="res://src/resources/player data/test_player.tres" id="2_64h4j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6owma"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1566504034]
+[sub_resource type="Curve3D" id="Curve3D_kh5p4"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8.940706, 0.00012207031, 7.4117084, 0, 0, 0, 0, 0, 0, 9.527485, 0.00012207031, 7.098688, 0, 0, 0, 0, 0, 0, 23.693205, 0.00012207031, -16.07169, 0, 0, 0, 0, 0, 0, -24.61646, 0.00012207031, -15.8719635),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="Player" type="CharacterBody3D" unique_id=1566504034 node_paths=PackedStringArray("enemy_path_follow") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_kh5p4")
-speed = 5.0
+enemy_path_follow = NodePath("Path3D/EnemyPathFollow")
+data = ExtResource("2_64h4j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=210629025]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_6owma")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D" unique_id=1191798244]
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1552441341]
 transform = Transform3D(1, 0, 0, 0, 0.50000006, 0.8660254, 0, -0.8660254, 0.50000006, 0.068574905, 7.810198, 3.9408832)
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1875791232]
+curve = SubResource("Curve3D_kh5p4")
+
+[node name="EnemyPathFollow" type="PathFollow3D" parent="Path3D" unique_id=2042184523]
+unique_name_in_owner = true
+transform = Transform3D(0.016946534, 0, -0.9998564, 0, 1, 0, 0.9998564, 0, 0.016946534, -8.940706, 0.00012207031, 7.4117084)

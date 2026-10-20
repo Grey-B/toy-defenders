@@ -68,6 +68,7 @@ func deffered_load_level(level_scene_uid: String) -> void:
 	level_root.add_child(current_level)
 
 	place_player_at_level_spawn()
+	check_for_enemy_spawn()
 	#setup_camera()
 
 
@@ -81,13 +82,41 @@ func place_player_at_level_spawn() -> void:
 
 	player.global_position = current_level.get_default_player_spawn()
 
-	#func setup_camera() -> void:
-	#if player == null or current_level == null:
-	#return
-	#
-	#var level_camera := current_level.get_player_camera()
-	#if level_camera == null:
-	#return
-	#
-	## TODO: temporary hookup
-	## TODO: camera_system.set_target(player)
+#func setup_camera() -> void:
+#if player == null or current_level == null:
+#return
+#
+#var level_camera := current_level.get_player_camera()
+#if level_camera == null:
+#return
+#
+## TODO: temporary hookup
+## TODO: camera_system.set_target(player)
+
+
+func check_for_enemy_spawn() -> void:
+	var timer := current_level.get_enemy_spawn_timer()
+	if timer != null:
+		timer.timeout.connect(spawn_enemy)
+
+
+func spawn_enemy() -> void:
+	var enemy: PackedScene = ResourceLoader.load(current_level.ENEMY_UID_ARRAY[0]) \
+			as PackedScene
+	if enemy == null:
+		push_error("Could not load enemy scene: " + current_level.ENEMY_UID_ARRAY[0])
+		return
+
+	var enemy_instance = enemy.instantiate() as BaseEnemy
+	if enemy_instance == null:
+		push_error(
+			"Loaded enemy scene does not extend BaseEnemy or DNE: "
+			+ current_level.ENEMY_UID_ARRAY[0],
+		)
+		return
+
+	enemy_instance.data = current_level.ENEMY_DATA_ARRAY[0]
+	entity_root.add_child(enemy_instance)
+
+	player.enemy_path_follow.progress_ratio = randf()
+	enemy_instance.global_position = player.enemy_path_follow.global_position

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cl4des5tp7u2b"]
+
+[ext_resource type="Script" uid="uid://dwndrrr5f8rvs" path="res://src/resources/enemy behaviors/running_enemy.gd" id="1_pa7gm"]
+[ext_resource type="PackedScene" uid="uid://dyunvgriy0fp3" path="res://assets/3d/models/enemies/test_enemy_model.tscn" id="2_miowe"]
+[ext_resource type="Script" uid="uid://dqh80xmgt7r3e" path="res://src/resources/enemy data/enemy_data.gd" id="3_ckmvi"]
+
+[sub_resource type="Resource" id="Resource_578bt"]
+script = ExtResource("1_pa7gm")
+metadata/_custom_type_script = "uid://dwndrrr5f8rvs"
+
+[resource]
+script = ExtResource("3_ckmvi")
+name = "Test Enemy"
+model = ExtResource("2_miowe")
+behavior = SubResource("Resource_578bt")
+metadata/_custom_type_script = "uid://dqh80xmgt7r3e"
