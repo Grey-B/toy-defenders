@@ -18,6 +18,7 @@ var current_level: BaseLevel = null
 
 
 func _ready() -> void:
+	get_window().grab_focus.call_deferred()
 	init_player()
 	load_level(TEST_LEVEL_1_UID)
 
