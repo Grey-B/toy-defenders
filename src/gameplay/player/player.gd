@@ -49,9 +49,14 @@ func _physics_process(_delta: float) -> void:
 	# Make player look at mouse
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
 	var ray_from := camera.project_ray_origin(mouse_pos)
-	var ray_to := ray_from + camera.project_ray_normal(mouse_pos) * RAYCAST_LENGTH
-	ray_to.y = collision_shape_3d.global_position.y
-	collision_shape_3d.look_at(ray_to, Vector3.UP, true)
+	var ray_dir := ray_from + camera.project_ray_normal(mouse_pos) * RAYCAST_LENGTH
+
+	var player_height = collision_shape_3d.global_position.y
+	var plane := Plane(Vector3.UP, player_height)
+	var intersection = plane.intersects_ray(ray_from, ray_dir)
+
+	if intersection != null:
+		collision_shape_3d.look_at(intersection, Vector3.UP, true)
 
 	# Make player move
 	var input_dir := Input.get_vector(
