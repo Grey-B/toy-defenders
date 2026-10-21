@@ -10,6 +10,9 @@ enum States { IDLE, MOVE }
 @onready var entity_root: Node3D = get_tree().get_first_node_in_group("entity_root")
 @onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
 @onready var projectile_spawn: Marker3D = %ProjectileSpawn
+@onready var camera: Camera3D = %Camera3D
+
+const RAYCAST_LENGTH: int = 1000
 
 var active_state: States = States.IDLE
 var model_instance: Node3D
@@ -43,6 +46,14 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	# Make player look at mouse
+	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
+	var ray_from := camera.project_ray_origin(mouse_pos)
+	var ray_to := ray_from + camera.project_ray_normal(mouse_pos) * RAYCAST_LENGTH
+	ray_to.y = collision_shape_3d.global_position.y
+	collision_shape_3d.look_at(ray_to, Vector3.UP, true)
+
+	# Make player move
 	var input_dir := Input.get_vector(
 		"move_left",
 		"move_right",
@@ -59,11 +70,6 @@ func _physics_process(_delta: float) -> void:
 		set_state(States.IDLE)
 
 	if active_state == States.MOVE:
-		collision_shape_3d.rotation.y = lerp_angle(
-			collision_shape_3d.rotation.y,
-			atan2(velocity.x, velocity.z),
-			0.15,
-		)
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	elif active_state == States.IDLE:
