@@ -20,6 +20,7 @@ func generate_wave() -> void:
 
 	## TODO: Make timer get smaller in larger waves
 	spawn_timer.timeout.connect(spawn_enemies)
+	spawn_timer.start()
 
 
 func spawn_enemies() -> void:

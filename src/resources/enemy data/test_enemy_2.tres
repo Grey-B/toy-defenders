@@ -1,7 +1,15 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://drdq0fcyjyt7n"]
 
 [ext_resource type="Script" uid="uid://dqh80xmgt7r3e" path="res://src/resources/enemy data/enemy_data.gd" id="1_p05bh"]
+[ext_resource type="Resource" uid="uid://7tgeiyq1t16e" path="res://src/resources/enemy behaviors/test_behavior.tres" id="1_yb0mc"]
+[ext_resource type="PackedScene" uid="uid://dyunvgriy0fp3" path="res://assets/3d/models/enemies/test_enemy_model.tscn" id="2_228hv"]
 
 [resource]
 script = ExtResource("1_p05bh")
+name = "Test Enemy 2"
+model = ExtResource("2_228hv")
+behavior = ExtResource("1_yb0mc")
+cost = 2
+speed = 6.0
+health = 20
 metadata/_custom_type_script = "uid://dqh80xmgt7r3e"
