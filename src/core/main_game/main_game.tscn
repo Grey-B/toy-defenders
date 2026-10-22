@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddx50aqqe660e"]
 
 [ext_resource type="Script" uid="uid://b75daq6ggxa5u" path="res://src/core/main_game/main_game.gd" id="1_3fed5"]
+[ext_resource type="Script" uid="uid://brf23rkp68o1b" path="res://src/core/main_game/wave_spawner.gd" id="2_6n4xl"]
 [ext_resource type="Script" uid="uid://booa5lssidq6e" path="res://src/core/main_game/debug_text_overlay.gd" id="2_6yl8a"]
 
 [node name="MainGame" type="Node" unique_id=375050390]
@@ -8,6 +9,14 @@ process_mode = 3
 script = ExtResource("1_3fed5")
 
 [node name="Systems" type="Node" parent="." unique_id=575766372]
+
+[node name="WaveSpawner" type="Node" parent="Systems" unique_id=794054064]
+unique_name_in_owner = true
+script = ExtResource("2_6n4xl")
+
+[node name="SpawnTimer" type="Timer" parent="Systems/WaveSpawner" unique_id=656247367]
+unique_name_in_owner = true
+autostart = true
 
 [node name="World" type="Node3D" parent="." unique_id=1969020105]
 process_mode = 1
