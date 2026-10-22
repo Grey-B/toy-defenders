@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ba0k6u41pfd88"]
 
 [ext_resource type="Script" uid="uid://dmmyy6xrqgir0" path="res://src/levels/prototypes/test_level_1.gd" id="1_1w4w8"]
-[ext_resource type="Script" uid="uid://d2yd8ffdkw5ye" path="res://src/gameplay/player/player_spawn.gd" id="2_578bt"]
 
 [sub_resource type="Environment" id="Environment_6owma"]
 
@@ -10,7 +9,7 @@
 [sub_resource type="Compositor" id="Compositor_hrtwn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6owma"]
-size = Vector3(200, 1, 200)
+size = Vector3(100, 1, 75)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yl8a"]
 albedo_color = Color(0, 0, 0, 1)
@@ -30,21 +29,16 @@ compositor = SubResource("Compositor_hrtwn")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Light" unique_id=1738101022]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.7071069, 0, -0.7071069, 0.70710677, 0, 31.665031, 142.91565)
 
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1449169806]
+transform = Transform3D(1, 0, 0, 0, 0.27082238, 0.9626293, 0, -0.9626293, 0.27082238, 0, 27.721054, 0)
+projection = 1
+size = 50.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=166323494]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1775220504]
 shape = SubResource("BoxShape3D_6owma")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D/CollisionShape3D" unique_id=382898587]
-size = Vector3(200, 1, 200)
+size = Vector3(100, 1, 77)
 material = SubResource("StandardMaterial3D_6yl8a")
-
-[node name="PlayerSpawn" type="Marker3D" parent="." unique_id=448371376]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-script = ExtResource("2_578bt")
-
-[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=985624252]
-unique_name_in_owner = true
-wait_time = 0.5
-autostart = true

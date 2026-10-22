@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="AncestryData" format=3 uid="uid://ymiqrpgjlthk"]
-
-[ext_resource type="PackedScene" uid="uid://hdqyulugd4ou" path="res://assets/3d/models/ancestries/test_ancestry_model.tscn" id="1_eavqt"]
-[ext_resource type="Script" uid="uid://bc8n85wfr8p17" path="res://src/resources/player data/ancestry_data.gd" id="1_ycccd"]
-
-[resource]
-script = ExtResource("1_ycccd")
-model = ExtResource("1_eavqt")
-metadata/_custom_type_script = "uid://bc8n85wfr8p17"

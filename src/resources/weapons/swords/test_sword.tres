@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="BaseSword" format=3 uid="uid://b21i3lrmltkg8"]
-
-[ext_resource type="PackedScene" uid="uid://c2cywo6pctl7f" path="res://src/gameplay/projectiles/test_sword_projectile.tscn" id="1_ixr2n"]
-[ext_resource type="Script" uid="uid://c6vdb4ufmtpip" path="res://src/resources/weapons/swords/base_sword.gd" id="1_pl6y0"]
-
-[resource]
-script = ExtResource("1_pl6y0")
-attack_model = ExtResource("1_ixr2n")
-metadata/_custom_type_script = "uid://c6vdb4ufmtpip"

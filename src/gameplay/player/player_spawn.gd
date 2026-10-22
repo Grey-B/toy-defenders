@@ -1,2 +1,0 @@
-class_name PlayerSpawn
-extends Marker3D
