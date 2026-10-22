@@ -9,10 +9,17 @@
 [sub_resource type="Compositor" id="Compositor_hrtwn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6owma"]
-size = Vector3(100, 1, 75)
+size = Vector3(30, 1, 20.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yl8a"]
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_1w4w8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.29311, 0.5, 6.1476555, 0, 0, 0, 0, 0, 0, -10.3953495, 0.5, 5.977598, 0, 0, 0, 0, 0, 0, -10.162121, 0.5, -0.93808746, 0, 0, 0, 0, 0, 0, -7.0135584, 0.5, -0.9947728, 0, 0, 0, 0, 0, 0, -7.1884785, 0.5, -4.9061036, 0, 0, 0, 0, 0, 0, -3.5151567, 0.5, -4.7360463, 0, 0, 0, 0, 0, 0, -3.864997, 0.5, -0.76803017, 0, 0, 0, 0, 0, 0, -0.24998379, 0.5, -0.5979711, 0, 0, 0, 0, 0, 0, -0.07506323, 0.5, 3.1433005, 0, 0, 0, 0, 0, 0, 7.09666, 0.5, 3.0866156, 0, 0, 0, 0, 0, 0, 7.329887, 0.5, -2.6953523, 0, 0, 0, 0, 0, 0, 12.052731, 0.5, -2.8087237, 0, 0, 0, 0, 0, 0, 12.344263, 0.5, 8.214761),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
 
 [node name="TestLevel1" type="Node3D" unique_id=1019135432]
 script = ExtResource("1_1w4w8")
@@ -30,9 +37,9 @@ compositor = SubResource("Compositor_hrtwn")
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.7071069, 0, -0.7071069, 0.70710677, 0, 31.665031, 142.91565)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1449169806]
-transform = Transform3D(1, 0, 0, 0, 0.27082238, 0.9626293, 0, -0.9626293, 0.27082238, 0, 27.721054, 0)
+transform = Transform3D(1, 0, 0, 0, 0.27082238, 0.9626293, 0, -0.9626293, 0.27082238, 0, 27.721054, 6.573242)
 projection = 1
-size = 50.0
+size = 16.562819
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=166323494]
 
@@ -40,5 +47,9 @@ size = 50.0
 shape = SubResource("BoxShape3D_6owma")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D/CollisionShape3D" unique_id=382898587]
-size = Vector3(100, 1, 77)
+size = Vector3(30, 1, 20.1)
 material = SubResource("StandardMaterial3D_6yl8a")
+
+[node name="EnemyPath" type="Path3D" parent="." unique_id=1213821389]
+unique_name_in_owner = true
+curve = SubResource("Curve3D_1w4w8")

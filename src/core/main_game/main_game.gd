@@ -1,6 +1,8 @@
 class_name MainGame
 extends Node
 
+@onready var wave_spawner: WaveSpawner = %WaveSpawner
+
 @onready var level_root: Node3D = %LevelRoot
 @onready var entity_root: Node3D = %EntityRoot
 @onready var effect_root: Node3D = %EffectRoot
@@ -50,3 +52,5 @@ func deffered_load_level(level_scene_uid: String) -> void:
 	# TODO add fall back scene
 
 	level_root.add_child(current_level)
+	wave_spawner.level = current_level
+	wave_spawner.generate_wave()

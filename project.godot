@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Just Another Fantasy Survivor"
+config/name="Toy Defenders"
 config/version="0.1.0"
 run/main_scene="uid://ddx50aqqe660e"
 config/features=PackedStringArray("4.7", "Forward Plus")
