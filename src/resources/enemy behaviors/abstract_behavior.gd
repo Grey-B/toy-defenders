@@ -2,4 +2,4 @@
 class_name AbstractBehavior
 extends Resource
 
-@abstract func process_behavior(enemy: BaseEnemy) -> void
+@abstract func process_behavior(delta: float, enemy: BaseEnemy) -> void

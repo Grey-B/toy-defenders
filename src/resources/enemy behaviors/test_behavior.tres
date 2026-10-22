@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BaseBehavior" format=3 uid="uid://7tgeiyq1t16e"]
+
+[ext_resource type="Script" uid="uid://c6233v8a543e0" path="res://src/resources/enemy behaviors/base_behavior.gd" id="1_nsrmu"]
+
+[resource]
+script = ExtResource("1_nsrmu")
+metadata/_custom_type_script = "uid://c6233v8a543e0"

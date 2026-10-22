@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cl4des5tp7u2b"]
 
+[ext_resource type="Resource" uid="uid://7tgeiyq1t16e" path="res://src/resources/enemy behaviors/test_behavior.tres" id="1_pa7gm"]
 [ext_resource type="PackedScene" uid="uid://dyunvgriy0fp3" path="res://assets/3d/models/enemies/test_enemy_model.tscn" id="2_miowe"]
 [ext_resource type="Script" uid="uid://dqh80xmgt7r3e" path="res://src/resources/enemy data/enemy_data.gd" id="3_ckmvi"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("3_ckmvi")
 name = "Test Enemy"
 model = ExtResource("2_miowe")
+behavior = ExtResource("1_pa7gm")
 metadata/_custom_type_script = "uid://dqh80xmgt7r3e"

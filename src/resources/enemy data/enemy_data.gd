@@ -6,3 +6,4 @@ extends Resource
 @export var behavior: AbstractBehavior
 @export var speed: float = 3.0
 @export var health: int = 50
+@export var damage: int = 1
