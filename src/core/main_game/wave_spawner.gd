@@ -2,13 +2,16 @@ class_name WaveSpawner
 extends Node
 
 const ENEMY_PREFAB: PackedScene = preload("uid://bmrucnnh3arqc")
-const ENEMY_DATA_ARRAY: Array[EnemyData] = [preload("uid://cl4des5tp7u2b")]
+const ENEMY_DATA_ARRAY: Array[EnemyData] = [
+	preload("uid://cl4des5tp7u2b"),
+	preload("uid://drdq0fcyjyt7n"),
+]
 
 @onready var spawn_timer: Timer = %SpawnTimer
 
 var level: BaseLevel
 var path: Path3D
-var wave_count: int = 5
+var wave_count: int = 2
 var wave_points: int
 var cur_points: int
 
