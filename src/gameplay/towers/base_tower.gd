@@ -5,14 +5,34 @@ extends Node3D
 @export var body: BasePart
 @export var arms: BasePart
 
+@onready var attack_radius: CollisionShape3D = %AttackRadius
+@onready var enemy_detection: EnemyDetection = %EnemyDetection
+
+var head_model: Node3D
+var body_model: BodyPart
+var left_arm_model: Node3D
+var right_arm_model: Node3D
 var damage: float = 10.0
 var attack_spd: float = 1.0
-var attack_range: float = 100.0
+var attack_range: float = 500.0
 
 
 func _ready() -> void:
 	apply_modifiers()
+	attack_radius.global_scale(
+		Vector3(
+			attack_range / 100,
+			attack_range / 100,
+			attack_range / 100,
+		),
+	)
+
 	instantiate_part_models()
+
+
+func _process(_delta: float) -> void:
+	if enemy_detection.select_target() != null:
+		body_model.look_at(enemy_detection.select_target().global_position)
 
 
 func apply_modifiers() -> void:
@@ -64,11 +84,6 @@ func apply_modifiers() -> void:
 
 
 func instantiate_part_models() -> void:
-	var head_model: Node3D
-	var body_model: BodyPart
-	var left_arm_model: Node3D
-	var right_arm_model: Node3D
-
 	head_model = head.model.instantiate()
 	body_model = body.model.instantiate()
 	left_arm_model = arms.model.instantiate()

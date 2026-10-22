@@ -4,9 +4,27 @@
 [ext_resource type="Resource" uid="uid://bmlh05x11ryha" path="res://src/resources/parts/heads/test_head.tres" id="2_l7dqy"]
 [ext_resource type="Resource" uid="uid://0r21gvpxw252" path="res://src/resources/parts/bodies/test_body.tres" id="3_4e8du"]
 [ext_resource type="Resource" uid="uid://6qm1wmo72apd" path="res://src/resources/parts/arms/test_arm.tres" id="4_1odgp"]
+[ext_resource type="Script" uid="uid://cl7thpo5hpksn" path="res://src/gameplay/towers/components/enemy_detection.gd" id="5_4e8du"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l7dqy"]
 
 [node name="TestTower" type="Node3D" unique_id=626375338]
 script = ExtResource("1_sh1q8")
 head = ExtResource("2_l7dqy")
 body = ExtResource("3_4e8du")
 arms = ExtResource("4_1odgp")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1308066797]
+collision_layer = 0
+collision_mask = 4
+
+[node name="AttackRadius" type="CollisionShape3D" parent="Area3D" unique_id=1693336985]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_l7dqy")
+
+[node name="EnemyDetection" type="Node" parent="." unique_id=390993065]
+unique_name_in_owner = true
+script = ExtResource("5_4e8du")
+
+[connection signal="area_entered" from="Area3D" to="EnemyDetection" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="EnemyDetection" method="_on_area_3d_area_exited"]
