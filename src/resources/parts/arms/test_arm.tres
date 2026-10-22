@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="BasePart" format=3 uid="uid://6qm1wmo72apd"]
 
 [ext_resource type="Script" uid="uid://dmis8simr8u1j" path="res://src/resources/parts/base_part.gd" id="1_2bfuj"]
-[ext_resource type="PackedScene" uid="uid://dedt1vwia6rc1" path="res://assets/3d/models/parts/arms/test_arm_model.tscn" id="1_t6g2a"]
+[ext_resource type="PackedScene" uid="uid://dedt1vwia6rc1" path="res://assets/3d/models/parts/arms/test_arm_left_model.tscn" id="1_hewyk"]
+[ext_resource type="PackedScene" uid="uid://cr70i1s4hykra" path="res://assets/3d/models/parts/arms/test_arm_right_model.tscn" id="2_3gs82"]
 [ext_resource type="Script" uid="uid://bs8tddgbx5lw8" path="res://src/resources/parts/stat_modifier.gd" id="2_t6g2a"]
 [ext_resource type="Resource" uid="uid://juqycm55pqj2" path="res://src/resources/parts/modifiers/test_modifier.tres" id="4_xm4lf"]
 
 [resource]
 script = ExtResource("1_2bfuj")
-model = ExtResource("1_t6g2a")
+model = ExtResource("1_hewyk")
+right_arm_model = ExtResource("2_3gs82")
 name = "Test Arm"
 description = "Arm for testing"
 type = 2

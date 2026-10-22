@@ -19,7 +19,7 @@ mesh = SubResource("BoxMesh_6owma")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.80972797, 0)
 
 [node name="LeftArmSocket" type="Marker3D" parent="." unique_id=2069008136]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5868249, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51317513, 0, 0)
 
 [node name="RightArmSocket" type="Marker3D" parent="." unique_id=2008361046]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57878673, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, 0, 0)

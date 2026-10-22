@@ -5,6 +5,7 @@ enum PartTypes { HEAD, BODY, ARMS }
 
 @export_group("Model")
 @export var model: PackedScene
+@export var right_arm_model: PackedScene
 
 @export_group("Text")
 @export var name: String

@@ -72,10 +72,9 @@ func instantiate_part_models() -> void:
 	head_model = head.model.instantiate()
 	body_model = body.model.instantiate()
 	left_arm_model = arms.model.instantiate()
-	right_arm_model = arms.model.instantiate()
+	right_arm_model = arms.right_arm_model.instantiate()
 
 	add_child(body_model)
 	body_model.head_socket.add_child(head_model)
 	body_model.left_arm_socket.add_child(left_arm_model)
-	left_arm_model.rotate_y(deg_to_rad(120))
 	body_model.right_arm_socket.add_child(right_arm_model)
