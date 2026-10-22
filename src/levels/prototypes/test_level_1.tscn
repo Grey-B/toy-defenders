@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ba0k6u41pfd88"]
 
 [ext_resource type="Script" uid="uid://dmmyy6xrqgir0" path="res://src/levels/prototypes/test_level_1.gd" id="1_1w4w8"]
+[ext_resource type="PackedScene" uid="uid://ndc3yfveb37w" path="res://src/gameplay/towers/test_tower.tscn" id="2_578bt"]
 
 [sub_resource type="Environment" id="Environment_6owma"]
 
@@ -53,3 +54,6 @@ material = SubResource("StandardMaterial3D_6yl8a")
 [node name="EnemyPath" type="Path3D" parent="." unique_id=1213821389]
 unique_name_in_owner = true
 curve = SubResource("Curve3D_1w4w8")
+
+[node name="TestTower" parent="." unique_id=626375338 instance=ExtResource("2_578bt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.295081, 0.5, -2.229469)

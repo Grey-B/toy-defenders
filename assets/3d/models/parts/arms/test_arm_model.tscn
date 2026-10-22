@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dedt1vwia6rc1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6owma"]
+radius = 0.15527344
+height = 1.0614624
+
+[node name="TestArmModel" type="Node3D" unique_id=587425710]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=921978520]
+transform = Transform3D(-3.7855173e-08, -0.8660254, 0.5, 1, -4.371139e-08, 0, 2.1855694e-08, 0.5, 0.8660254, -0.30390123, 2.503987e-08, 0.113577306)
+mesh = SubResource("CapsuleMesh_6owma")

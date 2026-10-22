@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BasePart" format=3 uid="uid://6qm1wmo72apd"]
+
+[ext_resource type="Script" uid="uid://dmis8simr8u1j" path="res://src/resources/parts/base_part.gd" id="1_2bfuj"]
+[ext_resource type="PackedScene" uid="uid://dedt1vwia6rc1" path="res://assets/3d/models/parts/arms/test_arm_model.tscn" id="1_t6g2a"]
+[ext_resource type="Script" uid="uid://bs8tddgbx5lw8" path="res://src/resources/parts/stat_modifier.gd" id="2_t6g2a"]
+[ext_resource type="Resource" uid="uid://juqycm55pqj2" path="res://src/resources/parts/modifiers/test_modifier.tres" id="4_xm4lf"]
+
+[resource]
+script = ExtResource("1_2bfuj")
+model = ExtResource("1_t6g2a")
+name = "Test Arm"
+description = "Arm for testing"
+type = 2
+stats = Array[ExtResource("2_t6g2a")]([ExtResource("4_xm4lf")])
+metadata/_custom_type_script = "uid://dmis8simr8u1j"

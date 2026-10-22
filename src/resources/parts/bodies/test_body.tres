@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BasePart" format=3 uid="uid://0r21gvpxw252"]
+
+[ext_resource type="Script" uid="uid://dmis8simr8u1j" path="res://src/resources/parts/base_part.gd" id="1_d0rsk"]
+[ext_resource type="PackedScene" uid="uid://crp1sfpdakww0" path="res://assets/3d/models/parts/bodies/test_body_model.tscn" id="1_l1sq5"]
+[ext_resource type="Script" uid="uid://bs8tddgbx5lw8" path="res://src/resources/parts/stat_modifier.gd" id="2_0gcvb"]
+[ext_resource type="Resource" uid="uid://juqycm55pqj2" path="res://src/resources/parts/modifiers/test_modifier.tres" id="4_7rhen"]
+
+[resource]
+script = ExtResource("1_d0rsk")
+model = ExtResource("1_l1sq5")
+name = "Test Body"
+description = "Body for testing"
+type = 1
+stats = Array[ExtResource("2_0gcvb")]([ExtResource("4_7rhen")])
+metadata/_custom_type_script = "uid://dmis8simr8u1j"
