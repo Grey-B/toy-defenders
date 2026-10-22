@@ -8,7 +8,7 @@ const ENEMY_DATA_ARRAY: Array[EnemyData] = [preload("uid://cl4des5tp7u2b")]
 
 var level: BaseLevel
 var path: Path3D
-var wave_count: int = 1
+var wave_count: int = 5
 var wave_points: int
 var cur_points: int
 
@@ -18,8 +18,7 @@ func generate_wave() -> void:
 	wave_points = wave_count * 5
 	cur_points = wave_points
 
-	@warning_ignore("integer_division")
-	spawn_timer.wait_time = 1 / wave_count % 3
+	## TODO: Make timer get smaller in larger waves
 	spawn_timer.timeout.connect(spawn_enemies)
 
 
