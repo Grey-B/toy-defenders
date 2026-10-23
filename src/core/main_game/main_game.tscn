@@ -16,6 +16,7 @@ script = ExtResource("2_6n4xl")
 
 [node name="SpawnTimer" type="Timer" parent="Systems/WaveSpawner" unique_id=656247367]
 unique_name_in_owner = true
+wait_time = 0.5
 
 [node name="World" type="Node3D" parent="." unique_id=1969020105]
 process_mode = 1

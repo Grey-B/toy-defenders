@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://crp1sfpdakww0"]
+
+[ext_resource type="Script" uid="uid://c6mx7t3w5es22" path="res://src/gameplay/towers/parts/body.gd" id="1_egeuw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6owma"]
+size = Vector3(1, 1.5, 1)
+
+[node name="TestBodyModel" type="Node3D" unique_id=1506277946 node_paths=PackedStringArray("head_socket", "left_arm_socket", "right_arm_socket")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_egeuw")
+head_socket = NodePath("HeadSocket")
+left_arm_socket = NodePath("LeftArmSocket")
+right_arm_socket = NodePath("RightArmSocket")
+metadata/_custom_type_script = "uid://c6mx7t3w5es22"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=472017991]
+mesh = SubResource("BoxMesh_6owma")
+
+[node name="HeadSocket" type="Marker3D" parent="." unique_id=2043430367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.80972797, 0)
+
+[node name="LeftArmSocket" type="Marker3D" parent="." unique_id=2069008136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51317513, 0, 0)
+
+[node name="RightArmSocket" type="Marker3D" parent="." unique_id=2008361046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, 0, 0)

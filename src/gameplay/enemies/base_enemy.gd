@@ -31,4 +31,4 @@ func deal_damage() -> void:
 func take_damage(damage_taken: int) -> void:
 	health -= damage_taken
 	if health <= 0:
-		call_deferred("queue_free")
+		queue_free.call_deferred()

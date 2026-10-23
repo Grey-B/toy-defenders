@@ -2,20 +2,20 @@
 
 [ext_resource type="Script" uid="uid://blhbew4ujxufv" path="res://src/gameplay/enemies/base_enemy.gd" id="1_wr6ee"]
 [ext_resource type="Resource" uid="uid://cl4des5tp7u2b" path="res://src/resources/enemy data/test_enemy.tres" id="2_m7ogj"]
+[ext_resource type="Script" uid="uid://cm10lcngutmx" path="res://src/gameplay/enemies/hurtbox.gd" id="3_ayech"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s58g3"]
-radius = 0.6
+[sub_resource type="SphereShape3D" id="SphereShape3D_ayech"]
 
 [node name="BaseEnemy" type="PathFollow3D" unique_id=141057784]
 loop = false
 script = ExtResource("1_wr6ee")
 data = ExtResource("2_m7ogj")
 
-[node name="Hurtbox" type="Area3D" parent="." unique_id=431302198]
-unique_name_in_owner = true
+[node name="Area3D" type="Area3D" parent="." unique_id=1130610926]
 collision_layer = 4
-collision_mask = 18
+collision_mask = 16
+script = ExtResource("3_ayech")
+metadata/_custom_type_script = "uid://cm10lcngutmx"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=1364037271]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_s58g3")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=963761355]
+shape = SubResource("SphereShape3D_ayech")

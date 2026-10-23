@@ -11,7 +11,7 @@ const ENEMY_DATA_ARRAY: Array[EnemyData] = [
 
 var level: BaseLevel
 var path: Path3D
-var wave_count: int = 2
+var wave_count: int = 1
 var wave_points: int
 var cur_points: int
 
