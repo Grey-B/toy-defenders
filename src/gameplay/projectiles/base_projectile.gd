@@ -13,7 +13,13 @@ var damage: int
 func _ready() -> void:
 	global_position = spawn_position
 	global_rotation = direction
+	hitbox.area_entered.connect(deal_damage)
 
 
 func _physics_process(delta: float) -> void:
 	global_position += rotation_basis.z * speed * delta
+
+
+func deal_damage(area: Area3D) -> void:
+	if area is Hurtbox:
+		area.get_parent().take_damage(damage)

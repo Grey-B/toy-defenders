@@ -15,7 +15,7 @@ var head_model: Node3D
 var body_model: Body
 var left_arm_model: Node3D
 var right_arm_model: Node3D
-var damage: float = 10.0
+var damage: int = 10
 var attack_spd: float = 1.0
 var attack_range: float = 500.0
 
@@ -47,48 +47,50 @@ func apply_modifiers() -> void:
 	for mod in head.stats:
 		if mod.operation == mod.Operation.ADD:
 			if mod.stat == mod.Stat.DAMAGE:
-				damage += mod.stat
+				damage = ceil(damage + mod.value)
 			elif mod.stat == mod.Stat.ATTACK_SPD:
-				attack_spd += mod.stat
+				attack_spd += mod.value
 			elif mod.stat == mod.Stat.RANGE:
-				attack_range += mod.stat
-		else:
+				attack_range += mod.value
+		elif mod.operation == mod.Operation.MULTIPLY:
 			if mod.stat == mod.Stat.DAMAGE:
-				damage *= mod.stat
+				damage = ceil(damage * mod.value)
 			elif mod.stat == mod.Stat.ATTACK_SPD:
-				attack_spd *= mod.stat
+				attack_spd *= mod.value
 			elif mod.stat == mod.Stat.RANGE:
-				attack_range *= mod.stat
+				attack_range *= mod.value
+
 	for mod in body.stats:
 		if mod.operation == mod.Operation.ADD:
 			if mod.stat == mod.Stat.DAMAGE:
-				damage += mod.stat
+				damage = ceil(damage + mod.value)
 			elif mod.stat == mod.Stat.ATTACK_SPD:
-				attack_spd += mod.stat
+				attack_spd += mod.value
 			elif mod.stat == mod.Stat.RANGE:
-				attack_range += mod.stat
-		else:
+				attack_range += mod.value
+		elif mod.operation == mod.Operation.MULTIPLY:
 			if mod.stat == mod.Stat.DAMAGE:
-				damage *= mod.stat
+				damage = ceil(damage * mod.value)
 			elif mod.stat == mod.Stat.ATTACK_SPD:
-				attack_spd *= mod.stat
+				attack_spd *= mod.value
 			elif mod.stat == mod.Stat.RANGE:
-				attack_range *= mod.stat
+				attack_range *= mod.value
+
 	for mod in arms.stats:
 		if mod.operation == mod.Operation.ADD:
 			if mod.stat == mod.Stat.DAMAGE:
-				damage += mod.stat
+				damage = ceil(damage + mod.value)
 			elif mod.stat == mod.Stat.ATTACK_SPD:
-				attack_spd += mod.stat
+				attack_spd += mod.value
 			elif mod.stat == mod.Stat.RANGE:
-				attack_range += mod.stat
-		else:
+				attack_range += mod.value
+		elif mod.operation == mod.Operation.MULTIPLY:
 			if mod.stat == mod.Stat.DAMAGE:
-				damage *= mod.stat
+				damage = ceil(damage * mod.value)
 			elif mod.stat == mod.Stat.ATTACK_SPD:
-				attack_spd *= mod.stat
+				attack_spd *= mod.value
 			elif mod.stat == mod.Stat.RANGE:
-				attack_range *= mod.stat
+				attack_range *= mod.value
 
 
 func instantiate_part_models() -> void:
@@ -108,5 +110,5 @@ func attack() -> void:
 	attack_instance.direction = body_model.rotation
 	attack_instance.spawn_position = projectile_spawn.global_position
 	attack_instance.rotation_basis = body_model.global_transform.basis
-	attack_instance.damage = int(damage)
+	attack_instance.damage = damage
 	entity_root.add_child(attack_instance)
