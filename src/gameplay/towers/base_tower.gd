@@ -18,6 +18,7 @@ var right_arm_model: Node3D
 var damage: int = 10
 var attack_spd: float = 1.0
 var attack_range: float = 500.0
+var pierce: int = 1
 
 
 func _ready() -> void:
@@ -54,6 +55,8 @@ func apply_modifiers() -> void:
 				attack_spd += mod.value
 			elif mod.stat == mod.Stat.RANGE:
 				attack_range += mod.value
+			elif mod.stat == mod.Stat.RANGE:
+				pierce = ceil(pierce + mod.value)
 		elif mod.operation == mod.Operation.MULTIPLY:
 			if mod.stat == mod.Stat.DAMAGE:
 				damage = ceil(damage * mod.value)
@@ -61,6 +64,8 @@ func apply_modifiers() -> void:
 				attack_spd *= mod.value
 			elif mod.stat == mod.Stat.RANGE:
 				attack_range *= mod.value
+			elif mod.stat == mod.Stat.PIERCE:
+				pierce = ceil(pierce * mod.value)
 
 	for mod in body.stats:
 		if mod.operation == mod.Operation.ADD:
@@ -70,6 +75,8 @@ func apply_modifiers() -> void:
 				attack_spd += mod.value
 			elif mod.stat == mod.Stat.RANGE:
 				attack_range += mod.value
+			elif mod.stat == mod.Stat.RANGE:
+				pierce = ceil(pierce + mod.value)
 		elif mod.operation == mod.Operation.MULTIPLY:
 			if mod.stat == mod.Stat.DAMAGE:
 				damage = ceil(damage * mod.value)
@@ -77,6 +84,8 @@ func apply_modifiers() -> void:
 				attack_spd *= mod.value
 			elif mod.stat == mod.Stat.RANGE:
 				attack_range *= mod.value
+			elif mod.stat == mod.Stat.PIERCE:
+				pierce = ceil(pierce * mod.value)
 
 	for mod in arms.stats:
 		if mod.operation == mod.Operation.ADD:
@@ -86,6 +95,8 @@ func apply_modifiers() -> void:
 				attack_spd += mod.value
 			elif mod.stat == mod.Stat.RANGE:
 				attack_range += mod.value
+			elif mod.stat == mod.Stat.RANGE:
+				pierce = ceil(pierce + mod.value)
 		elif mod.operation == mod.Operation.MULTIPLY:
 			if mod.stat == mod.Stat.DAMAGE:
 				damage = ceil(damage * mod.value)
@@ -93,6 +104,8 @@ func apply_modifiers() -> void:
 				attack_spd *= mod.value
 			elif mod.stat == mod.Stat.RANGE:
 				attack_range *= mod.value
+			elif mod.stat == mod.Stat.PIERCE:
+				pierce = ceil(pierce * mod.value)
 
 
 func instantiate_part_models() -> void:
@@ -109,10 +122,12 @@ func instantiate_part_models() -> void:
 
 func attack() -> void:
 	var attack_instance := arms.projectile.instantiate() as BaseProjectile
+
 	attack_instance.direction = body_model.rotation
 	attack_instance.spawn_position = projectile_spawn.global_position
 	attack_instance.rotation_basis = body_model.global_transform.basis
 	attack_instance.damage = damage
+	attack_instance.pierce = pierce
 
 	entity_root.add_child(attack_instance)
 

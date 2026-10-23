@@ -8,6 +8,8 @@ var direction: Vector3
 var spawn_position: Vector3
 var rotation_basis: Basis
 var damage: int
+var pierce: int
+var enemies_pierced: int = 0
 
 
 func _ready() -> void:
@@ -23,3 +25,6 @@ func _physics_process(delta: float) -> void:
 func deal_damage(area: Area3D) -> void:
 	if area is Hurtbox:
 		area.get_parent().take_damage(damage)
+		enemies_pierced += 1
+		if enemies_pierced >= pierce:
+			queue_free.call_deferred()
