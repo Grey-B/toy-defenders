@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dmis8simr8u1j" path="res://src/resources/parts/base_part.gd" id="1_2bfuj"]
 [ext_resource type="PackedScene" uid="uid://dedt1vwia6rc1" path="res://assets/3d/models/parts/arms/test_arm_left_model.tscn" id="1_hewyk"]
 [ext_resource type="PackedScene" uid="uid://cr70i1s4hykra" path="res://assets/3d/models/parts/arms/test_arm_right_model.tscn" id="2_3gs82"]
+[ext_resource type="PackedScene" uid="uid://ow23gvx42rtf" path="res://src/gameplay/projectiles/test_projectile.tscn" id="2_i0i01"]
 [ext_resource type="Script" uid="uid://bs8tddgbx5lw8" path="res://src/resources/parts/stat_modifier.gd" id="2_t6g2a"]
 [ext_resource type="Resource" uid="uid://juqycm55pqj2" path="res://src/resources/parts/modifiers/test_modifier.tres" id="4_xm4lf"]
 
@@ -13,5 +14,6 @@ right_arm_model = ExtResource("2_3gs82")
 name = "Test Arm"
 description = "Arm for testing"
 type = 2
+projectile = ExtResource("2_i0i01")
 stats = Array[ExtResource("2_t6g2a")]([ExtResource("4_xm4lf")])
 metadata/_custom_type_script = "uid://dmis8simr8u1j"

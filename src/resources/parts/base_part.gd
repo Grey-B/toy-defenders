@@ -13,6 +13,7 @@ enum PartTypes { HEAD, BODY, ARMS }
 
 @export_group("Function")
 @export var type: PartTypes
+@export var projectile: PackedScene
 @export var stats: Array[StatModifier]
 @export var behaviors: Array[PackedScene]
 # @export var upgrade_1: BaseUpgrade

@@ -1,4 +1,4 @@
-class_name BodyPart
+class_name Body
 extends Node3D
 
 @export var head_socket: Marker3D

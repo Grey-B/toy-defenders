@@ -22,6 +22,14 @@ collision_mask = 4
 unique_name_in_owner = true
 shape = SubResource("SphereShape3D_l7dqy")
 
+[node name="AttackTimer" type="Timer" parent="." unique_id=1029798597]
+unique_name_in_owner = true
+autostart = true
+
+[node name="ProjectileSpawn" type="Marker3D" parent="." unique_id=865017584]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
 [node name="EnemyDetection" type="Node" parent="." unique_id=390993065]
 unique_name_in_owner = true
 script = ExtResource("5_4e8du")

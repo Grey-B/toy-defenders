@@ -11,5 +11,5 @@ model = ExtResource("2_228hv")
 behavior = ExtResource("1_yb0mc")
 cost = 2
 speed = 6.0
-health = 20
+health = 10
 metadata/_custom_type_script = "uid://dqh80xmgt7r3e"

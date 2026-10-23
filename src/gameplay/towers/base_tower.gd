@@ -6,10 +6,13 @@ extends Node3D
 @export var arms: BasePart
 
 @onready var attack_radius: CollisionShape3D = %AttackRadius
+@onready var attack_timer: Timer = %AttackTimer
+@onready var projectile_spawn: Marker3D = %ProjectileSpawn
 @onready var enemy_detection: EnemyDetection = %EnemyDetection
+@onready var entity_root: Node3D = get_tree().get_first_node_in_group("entity_root")
 
 var head_model: Node3D
-var body_model: BodyPart
+var body_model: Body
 var left_arm_model: Node3D
 var right_arm_model: Node3D
 var damage: float = 10.0
@@ -19,6 +22,7 @@ var attack_range: float = 500.0
 
 func _ready() -> void:
 	apply_modifiers()
+
 	attack_radius.global_scale(
 		Vector3(
 			attack_range / 100,
@@ -27,12 +31,16 @@ func _ready() -> void:
 		),
 	)
 
+	attack_timer.wait_time /= attack_spd
+	attack_timer.timeout.connect(attack)
+
 	instantiate_part_models()
 
 
 func _process(_delta: float) -> void:
 	if enemy_detection.select_target() != null:
 		body_model.look_at(enemy_detection.select_target().global_position)
+		body_model.rotate_y(deg_to_rad(180))
 
 
 func apply_modifiers() -> void:
@@ -93,3 +101,12 @@ func instantiate_part_models() -> void:
 	body_model.head_socket.add_child(head_model)
 	body_model.left_arm_socket.add_child(left_arm_model)
 	body_model.right_arm_socket.add_child(right_arm_model)
+
+
+func attack() -> void:
+	var attack_instance := arms.projectile.instantiate() as BaseProjectile
+	attack_instance.direction = body_model.rotation
+	attack_instance.spawn_position = projectile_spawn.global_position
+	attack_instance.rotation_basis = body_model.global_transform.basis
+	attack_instance.damage = int(damage)
+	entity_root.add_child(attack_instance)

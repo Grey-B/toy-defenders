@@ -56,4 +56,4 @@ unique_name_in_owner = true
 curve = SubResource("Curve3D_1w4w8")
 
 [node name="TestTower" parent="." unique_id=626375338 instance=ExtResource("2_578bt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.295081, 0.5, -2.229469)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.295081, 0.5, -2.229469)
