@@ -39,11 +39,10 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if enemy_detection.select_target() != null:
-		body_model.look_at(enemy_detection.select_target().global_position)
+	var target := enemy_detection.select_target()
+	if target != null:
+		body_model.look_at(target.global_position)
 		body_model.rotate_y(deg_to_rad(180))
-	else:
-		attack_timer.stop()
 
 
 func apply_modifiers() -> void:
