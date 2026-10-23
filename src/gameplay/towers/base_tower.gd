@@ -43,6 +43,9 @@ func _process(_delta: float) -> void:
 	if target != null:
 		body_model.look_at(target.global_position)
 		body_model.rotate_y(deg_to_rad(180))
+		if attack_timer.is_stopped():
+			attack_timer.start()
+			attack()
 
 
 func apply_modifiers() -> void:
@@ -129,5 +132,3 @@ func attack() -> void:
 	attack_instance.pierce = pierce
 
 	entity_root.add_child(attack_instance)
-
-	attack_timer.start()

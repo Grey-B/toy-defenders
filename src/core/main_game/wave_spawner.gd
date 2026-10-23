@@ -18,7 +18,7 @@ var cur_points: int
 
 func generate_wave() -> void:
 	path = level.get_enemy_path()
-	wave_points = wave_count * 5
+	wave_points = 3 + wave_count * 2
 	cur_points = wave_points
 
 	## TODO: Make timer get smaller in larger waves

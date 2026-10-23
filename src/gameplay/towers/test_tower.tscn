@@ -24,6 +24,7 @@ shape = SubResource("SphereShape3D_l7dqy")
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1029798597]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="ProjectileSpawn" type="Marker3D" parent="." unique_id=865017584]
 unique_name_in_owner = true
