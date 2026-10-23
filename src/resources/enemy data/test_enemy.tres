@@ -9,5 +9,5 @@ script = ExtResource("3_ckmvi")
 name = "Test Enemy"
 model = ExtResource("2_miowe")
 behavior = ExtResource("1_pa7gm")
-health = 10
+health = 20
 metadata/_custom_type_script = "uid://dqh80xmgt7r3e"

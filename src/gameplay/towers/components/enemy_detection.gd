@@ -1,11 +1,15 @@
 class_name EnemyDetection
 extends Node
 
+@export var tower: BaseTower
+
 var candidates: Array[PathFollow3D]
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.get_parent() is BaseEnemy:
+		if tower.attack_timer.is_stopped():
+			tower.attack()
 		candidates.append(area.get_parent())
 
 

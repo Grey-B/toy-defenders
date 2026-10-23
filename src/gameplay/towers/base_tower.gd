@@ -41,6 +41,8 @@ func _process(_delta: float) -> void:
 	if enemy_detection.select_target() != null:
 		body_model.look_at(enemy_detection.select_target().global_position)
 		body_model.rotate_y(deg_to_rad(180))
+	else:
+		attack_timer.stop()
 
 
 func apply_modifiers() -> void:
@@ -111,4 +113,7 @@ func attack() -> void:
 	attack_instance.spawn_position = projectile_spawn.global_position
 	attack_instance.rotation_basis = body_model.global_transform.basis
 	attack_instance.damage = damage
+
 	entity_root.add_child(attack_instance)
+
+	attack_timer.start()
